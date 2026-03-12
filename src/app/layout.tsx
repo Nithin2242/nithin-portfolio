@@ -17,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased relative bg-[#050505] cursor-none">
-        <CustomCursor /> {/* This was missing! */}
+        <CustomCursor />
         <ParticlesBackground />
         {children}
+        
+        {/* ADD THIS LINE HERE */}
+        <Analytics /> 
       </body>
     </html>
   );
