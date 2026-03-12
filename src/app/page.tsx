@@ -249,7 +249,7 @@ export default function Home() {
       <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-10 relative z-10" id="contact">
         <div className="space-y-2">
           <h3 className="text-4xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
-          <p className="text-gray-500 text-sm uppercase tracking-widest font-mono">Open for 2026 roles & collaborations</p>
+          
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-4">
