@@ -7,7 +7,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import HealthBotDemo from "./components/HealthBotDemo";
 import LottieAnimation from "./components/LottieAnimation";
 
-// JSON Animations (Ensure these exist in your /public folder)
+// JSON Animations
 import healthcareBotData from "../../public/healthcare-bot.json";
 import inventoryData from "../../public/inventory.json";
 import codeReviewData from "../../public/code-review.json";
@@ -32,30 +32,53 @@ export default function Home() {
         initial="hidden" animate="visible" variants={fadeInUp} 
         className="flex flex-col md:flex-row items-center gap-12 pt-12 md:pt-20 relative z-10"
       >
-        <div className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
+        <div className="flex-1 space-y-8 text-center md:text-left order-2 md:order-1">
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none">
             NITHIN NS
           </h1>
-          <h2 className="text-lg md:text-xl text-gray-400 font-light tracking-[0.2em] uppercase">
-            Full-Stack Developer <span className="text-white/20 px-2">//</span> AI & Data Analytics
+          
+          {/* PERFECTLY ALIGNED VERTICAL EXPERTISE GRID */}
+          <h2 className="text-[10px] md:text-[11px] text-gray-400 font-light tracking-[0.3em] uppercase flex flex-col gap-6 items-center md:items-start mt-6">
+            <div className="flex items-center gap-4 group">
+               <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+               <span className="text-gray-300 group-hover:text-white transition-colors duration-300">Full-Stack Developer</span>
+            </div>
+
+            <div className="flex items-center gap-4 group">
+              <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+              <div className="px-3 py-1.5 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-full flex items-center gap-3 shadow-2xl group-hover:border-white/30 transition-all duration-500">
+                <span className="text-white font-black tracking-tighter text-xs">AI & ML</span>
+                <span className="text-[8px] text-gray-500 font-mono leading-tight border-l border-white/10 pl-3 uppercase">
+                  ARTIFICIAL<br/>INTELLIGENCE
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 group">
+               <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+               <span className="text-gray-300 group-hover:text-white transition-colors duration-300">Data Analytics</span>
+            </div>
           </h2>
+
           <p className="text-lg text-gray-300 max-w-xl leading-relaxed">
             Based in Bangalore, India. I build scalable intelligent systems and data-driven solutions at the intersection of full-stack architecture and machine learning.
           </p>
         </div>
 
+        {/* Right Side: Circular Photo with Glow */}
         <div className="relative group order-1 md:order-2">
+          {/* Ambient Glow behind the photo */}
           <div className="absolute -inset-2 bg-gradient-to-tr from-white/20 to-transparent rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition duration-1000"></div>
+          
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 overflow-hidden backdrop-blur-sm shadow-2xl">
             <img 
               src="/profile.jpeg" 
               alt="Nithin N S" 
-              className="w-full h-full object-cover object-[center_45%] grayscale hover:grayscale-0 transition-all duration-1000 scale-[1.3] hover:scale-[1.2] translate-y-2"
+              className="w-full h-full object-cover object-[center_30%] grayscale hover:grayscale-0 transition-all duration-1000 scale-[1.3] hover:scale-[1.2] translate-y-2"
             />
           </div>
-          <div className="absolute -bottom-4 -right-4 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full hidden md:block">
-            <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">NNS_ID_02242</span>
-          </div>
+          
+          {/* NNS_ID tag removed for a cleaner aesthetic */}
         </div>
       </motion.section>
 
@@ -106,7 +129,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
           >
             {/* PROJECTS TAB */}
             {activeTab === "projects" && (
@@ -121,14 +144,14 @@ export default function Home() {
                   },
                   {
                     title: "Real-Time Inventory System",
-                    tag: "FliPR Labs",
+                    tag: "SILVER",
                     data: inventoryData,
                     tech: ["REACT", "NODE.JS", "JWT"],
                     desc: "Enterprise management system with secure authentication and real-time stock tracking."
                   },
                   {
                     title: "AI Code Reviewer",
-                    tag: "2025",
+                    tag: "NEW",
                     data: codeReviewData,
                     tech: ["PYTHON", "FLASK", "GEMINI"],
                     desc: "Automated analysis tool detecting security vulnerabilities and bugs in real-time."
@@ -167,7 +190,7 @@ export default function Home() {
                       </div>
                       <div className="flex flex-wrap gap-3 pt-4 border-t border-white/5">
                         {project.tech.map((t) => (
-                          <span key={t} className="text-[10px] font-mono text-green-400/70 tracking-widest">{t}</span>
+                          <span key={t} className="text-[10px] font-mono text-green-400/70 tracking-widest uppercase">{t}</span>
                         ))}
                       </div>
                     </div>
@@ -225,8 +248,8 @@ export default function Home() {
       {/* 4. FOOTER / CONTACT */}
       <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-10 relative z-10" id="contact">
         <div className="space-y-2">
-          <h3 className="text-6xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
-          
+          <h3 className="text-4xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
+          <p className="text-gray-500 text-sm uppercase tracking-widest font-mono">Open for 2026 roles & collaborations</p>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-4">
