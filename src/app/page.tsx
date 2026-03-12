@@ -1,18 +1,15 @@
 "use client";
 
-// Updated Line 4: Only the icons that are definitely working
-import { SiPython, SiFlask, SiReact, SiTailwindcss, SiNodedotjs, SiJsonwebtokens, SiGoogle, SiStreamlit, SiFlutter } from "react-icons/si";
-
-// Updated Line 5: Stable icons from Font Awesome
-import { FaDatabase, FaFileExcel, FaChartBar } from "react-icons/fa";
-
-// (Ensure your existing JSON and component imports stay!)
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 // Components
 import HealthBotDemo from "./components/HealthBotDemo";
 import LottieAnimation from "./components/LottieAnimation";
+
+// Icons
+import { SiPython, SiFlask, SiReact, SiTailwindcss, SiNodedotjs, SiJsonwebtokens, SiGoogle, SiStreamlit, SiFlutter } from "react-icons/si";
+import { FaDatabase, FaFileExcel, FaChartBar } from "react-icons/fa";
 
 // JSON Animations
 import healthcareBotData from "../../public/healthcare-bot.json";
@@ -32,29 +29,28 @@ export default function Home() {
   const glassCardClass = "p-6 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-all duration-500 cursor-none";
 
   return (
-    <main className="min-h-screen p-8 md:p-24 max-w-5xl mx-auto space-y-32">
+    <main className="min-h-screen p-8 md:p-24 max-w-6xl mx-auto flex flex-col gap-32">
       
       {/* 1. HERO SECTION */}
       <motion.section 
         initial="hidden" animate="visible" variants={fadeInUp} 
-        className="flex flex-col md:flex-row items-center gap-12 pt-12 md:pt-20 relative z-10"
+        className="flex flex-col md:flex-row items-center justify-between gap-12 pt-10"
       >
-        <div className="flex-1 space-y-8 text-center md:text-left order-2 md:order-1">
-          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none">
+        <div className="flex-1 space-y-10 text-center md:text-left">
+          <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter leading-none">
             NITHIN NS
           </h1>
           
-          {/* PERFECTLY ALIGNED VERTICAL EXPERTISE GRID */}
-          <h2 className="text-[10px] md:text-[11px] text-gray-400 font-light tracking-[0.3em] uppercase flex flex-col gap-6 items-center md:items-start mt-6">
+          <div className="text-[10px] md:text-[11px] text-gray-400 font-light tracking-[0.3em] uppercase flex flex-col gap-6 items-center md:items-start">
             <div className="flex items-center gap-4 group">
-               <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+               <span className="text-white/20 font-mono font-bold w-6 text-center">{"//"}</span>
                <span className="text-gray-300 group-hover:text-white transition-colors duration-300">Full-Stack Developer</span>
             </div>
 
             <div className="flex items-center gap-4 group">
-              <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+              <span className="text-white/20 font-mono font-bold w-6 text-center">{"//"}</span>
               <div className="px-3 py-1.5 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-full flex items-center gap-3 shadow-2xl group-hover:border-white/30 transition-all duration-500">
-                <span className="text-white font-black tracking-tighter text-xs">AI & ML</span>
+                <span className="text-white font-black tracking-tighter text-xs">AI &</span>
                 <span className="text-[8px] text-gray-500 font-mono leading-tight border-l border-white/10 pl-3 uppercase">
                   ARTIFICIAL<br/>INTELLIGENCE
                 </span>
@@ -62,34 +58,52 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-4 group">
-               <span className="text-white/20 font-mono font-bold w-6 text-center">//</span>
+               <span className="text-white/20 font-mono font-bold w-6 text-center">{"//"}</span>
                <span className="text-gray-300 group-hover:text-white transition-colors duration-300">Data Analytics</span>
             </div>
-          </h2>
-
-          <p className="text-lg text-gray-300 max-w-xl leading-relaxed">
-            Based in Bangalore, India. I build scalable intelligent systems and data-driven solutions at the intersection of full-stack architecture and machine learning.
-          </p>
+          </div>
         </div>
 
-        {/* Right Side: Circular Photo with Glow */}
-        <div className="relative group order-1 md:order-2">
-          {/* Ambient Glow behind the photo */}
-          <div className="absolute -inset-2 bg-gradient-to-tr from-white/20 to-transparent rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition duration-1000"></div>
-          
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 overflow-hidden backdrop-blur-sm shadow-2xl">
+        <div className="relative group shrink-0">
+          <div className="absolute -inset-4 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-3xl opacity-30"></div>
+          <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/10 overflow-hidden shadow-2xl">
             <img 
               src="/profile.jpeg" 
               alt="Nithin N S" 
-              className="w-full h-full object-cover object-[center_30%] grayscale hover:grayscale-0 transition-all duration-1000 scale-[1.3] hover:scale-[1.2] translate-y-2"
+              className="w-full h-full object-cover object-[center_30%] grayscale hover:grayscale-0 transition-all duration-1000 scale-[1.3] hover:scale-110"
             />
           </div>
-          
-          {/* NNS_ID tag removed for a cleaner aesthetic */}
         </div>
       </motion.section>
 
-      {/* 2. CORE EXPERTISE */}
+      {/* 2. ABOUT ME SECTION (Clean & Full-Width) */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} 
+        className="max-w-4xl space-y-12 relative z-10"
+      >
+        <div className="space-y-6 text-center md:text-left">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8">
+            <h3 className="text-3xl font-bold tracking-[0.2em] text-white uppercase">The Story</h3>
+            <div className="hidden md:block h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent"></div>
+          </div>
+          
+          <div className="space-y-8">
+            <p className="text-gray-300 leading-relaxed text-2xl font-light">
+              I&apos;m an Electronics and Communication Engineering student at <span className="text-white font-semibold">BMS Institute of Technology and Management</span>. 
+            </p>
+            
+            <p className="text-gray-400 leading-relaxed text-lg">
+              My journey is fueled by the precision of hardware and the infinite scalability of intelligent software. I specialize in architecting full-stack systems and fine-tuning AI models, exploring how IoT can solve real-world problems.
+            </p>
+
+            <p className="text-gray-400 leading-relaxed text-lg border-l-2 border-white/10 pl-6 italic">
+              My focus is on building scalable, data-driven solutions that bridge the gap between complex engineering and user-centric design, constantly pushing the boundaries of what&apos;s possible at the intersection of AI and Full-Stack architecture.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* 3. CORE EXPERTISE */}
       <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-12 relative z-10">
         <h3 className="text-3xl font-bold tracking-tight border-b border-white/10 pb-4 uppercase">Core Expertise</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -112,7 +126,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 3. TABBED CONTENT SECTION */}
+      {/* 4. TABBED CONTENT SECTION */}
       <section className="relative z-10 space-y-12">
         <div className="flex flex-wrap justify-center gap-4 border-b border-white/10 pb-8">
           {["projects", "certificates", "demo"].map((tab) => (
@@ -146,10 +160,9 @@ export default function Home() {
                     title: "AI Healthcare Assistant",
                     tag: "2026",
                     data: healthcareBotData,
-                    // UPDATED: Icons are now components with custom colors
                     tech: [
                       { icon: SiPython, color: "text-[#3776AB]" },
-                      { icon: SiGoogle, color: "text-[#4285F4]" }, // Representing Gemini
+                      { icon: SiGoogle, color: "text-[#4285F4]" },
                       { icon: SiStreamlit, color: "text-[#FF4B4B]" }
                     ],
                     desc: "A specialized AI agent providing personalized wellness insights and medical info retrieval."
@@ -161,7 +174,7 @@ export default function Home() {
                     tech: [
                       { icon: SiReact, color: "text-[#61DAFB]" },
                       { icon: SiNodedotjs, color: "text-[#339933]" },
-                      { icon: SiJsonwebtokens, color: "text-white" }, // Changed here
+                      { icon: SiJsonwebtokens, color: "text-white" },
                       { icon: FaDatabase, color: "text-gray-400" }
                     ],
                     desc: "Enterprise management system with secure authentication and real-time stock tracking."
@@ -183,18 +196,18 @@ export default function Home() {
                     data: cyberSentinelData,
                     tech: [
                       { icon: SiFlutter, color: "text-[#02569B]" },
-                      { icon: SiPython, color: "text-[#3776AB]" }, // Assuming Python backend
-                      { icon: FaDatabase, color: "text-gray-400" } // General SQL
+                      { icon: SiPython, color: "text-[#3776AB]" },
+                      { icon: FaDatabase, color: "text-gray-400" }
                     ],
                     desc: "Mobile security app featuring ML threat detection and behavioral analytics."
                   },
-               {
+                  {
                     title: "D-Mart Sales Dashboard",
                     tag: "ANALYTICS",
                     data: dashboardData,
                     tech: [
                       { icon: FaDatabase, color: "text-gray-400" }, 
-                      { icon: FaChartBar, color: "text-[#F2C811]" }, // Using FaChartBar for Power BI
+                      { icon: FaChartBar, color: "text-[#F2C811]" },
                       { icon: FaFileExcel, color: "text-[#217346]" }
                     ],
                     desc: "End-to-end retail analytics with normalized schemas and predictive sales trends.",
@@ -202,16 +215,9 @@ export default function Home() {
                   }
                 ].map((project, index) => (
                   <div key={index} className={`group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-all duration-500 cursor-none flex flex-col h-full ${project.isWide ? 'md:col-span-2' : ''}`}>
-                    
-                    {/* (KEEP YOUR EXISTING LOTTIE wrapper with bg-white/5 etc.) */}
                     <div className={`${project.isWide ? 'aspect-[21/7]' : 'aspect-[21/9]'} bg-white/5 border-b border-white/10 flex items-center justify-center p-6 group-hover:bg-white/10 transition-colors relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700"></div>
-                      <LottieAnimation 
-                        animationData={project.data} 
-                        className={`${project.isWide ? 'w-48 h-48 md:w-64 md:h-64' : 'w-32 h-32'} relative z-10 group-hover:scale-110 transition-transform duration-700`}
-                      />
+                      <LottieAnimation animationData={project.data} className={`${project.isWide ? 'w-48 h-48 md:w-64 md:h-64' : 'w-32 h-32'} relative z-10`} />
                     </div>
-                    
                     <div className="p-5 space-y-3 flex-grow flex flex-col justify-between">
                       <div className="space-y-3">
                         <div className="flex justify-between items-start">
@@ -220,15 +226,10 @@ export default function Home() {
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed">{project.desc}</p>
                       </div>
-                      
-                      {/* UPDATED TECH STACK: Dynamic Icon Rendering with Colors */}
                       <div className="flex flex-wrap gap-4 pt-4 border-t border-white/5">
                         {project.tech.map((tech, tIndex) => (
                           <div key={tIndex} className={`flex items-center gap-2 ${tech.color}`}>
-                            {/* Dynamically Render the Icon Component with fixed size */}
                             <tech.icon className="w-5 h-5" /> 
-                            {/* Optional text: remove this span if you want ONLY icons */}
-                            {/* <span className="text-[9px] font-mono text-gray-500 tracking-widest uppercase">{tech.name}</span> */}
                           </div>
                         ))}
                       </div>
@@ -238,7 +239,7 @@ export default function Home() {
               </div>
             )}
 
-            {/* CERTIFICATES TAB */}
+            {/* CERTIFICATES TAB - All 6 restored */}
             {activeTab === "certificates" && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
@@ -249,12 +250,12 @@ export default function Home() {
                   { title: "Solutions Architecture", org: "AWS APAC", date: "2025", img: "/cert-aws.png" },
                   { title: "Web Development", org: "Fliprlabs", date: "2025", img: "/cert-flipr.png" },
                 ].map((cert, index) => (
-                  <div key={index} className="group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] transition-all duration-500 cursor-none">
+                  <div key={index} className="group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-all duration-500 cursor-none">
                     <div className="aspect-[16/10] overflow-hidden bg-white/5 border-b border-white/10 relative">
                       <img 
                         src={cert.img} 
-                        alt={cert.title}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        alt={cert.title} 
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
                       />
                     </div>
                     <div className="p-4 space-y-2">
@@ -271,7 +272,6 @@ export default function Home() {
               </div>
             )}
 
-            {/* DEMO TAB */}
             {activeTab === "demo" && (
               <div className="space-y-8 max-w-4xl mx-auto">
                 <p className="text-center text-gray-400 text-sm italic">Interact with the live AI Assistant below.</p>
@@ -284,53 +284,41 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* 4. FOOTER / CONTACT */}
-      <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-10 relative z-10" id="contact">
+{/* 5. FOOTER / CONTACT */}
+      <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-12 relative z-10" id="contact">
         <div className="space-y-2">
-          <h3 className="text-4xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
-          
+          <h3 className="text-6xl font-bold text-white tracking-tighter uppercase">LET&apos;S CONNECT</h3>
+
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-4">
-          <a 
-            href="mailto:nithinns1402@gmail.com" 
-            className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 hover:scale-105 transition-all cursor-none w-64 sm:w-auto"
-          >
-            EMAIL ME
-          </a>
-          <div className="flex gap-10">
+        <div className="flex flex-col items-center gap-8 pt-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 w-full">
             <a 
-              href="https://linkedin.com/in/nithin-n-s-23b3ba290" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors cursor-none font-mono text-sm uppercase tracking-widest"
+              href="mailto:nithinns1402@gmail.com" 
+              className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 hover:scale-105 transition-all cursor-none w-64 sm:w-auto"
             >
-              LinkedIn
+              EMAIL ME
             </a>
+            <div className="flex gap-10">
+              <a href="https://linkedin.com/in/nithin-n-s-23b3ba290" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors cursor-none font-mono text-xs uppercase tracking-widest">LinkedIn</a>
+              <a href="https://github.com/Nithin2242" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors cursor-none font-mono text-xs uppercase tracking-widest">GitHub</a>
+            </div>
+          </div>
+
+          <div className="pt-4">
             <a 
-              href="https://github.com/Nithin2242" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors cursor-none font-mono text-sm uppercase tracking-widest"
+              href="/Nithin_NS_Resume.pdf" 
+              download
+              className="px-8 py-3 border border-white/20 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/40 hover:scale-105 transition-all cursor-none flex items-center justify-center gap-3 group"
             >
-              GitHub
+              <svg className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              DOWNLOAD CV
             </a>
           </div>
         </div>
-
-        <div className="flex justify-center pt-4">
-          <a 
-            href="/Nithin_NS_Resume.pdf" 
-            download
-            className="px-8 py-3 border border-white/20 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/40 hover:scale-105 transition-all cursor-none flex items-center justify-center gap-2"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            DOWNLOAD CV
-          </a>
-        </div>
       </footer>
-    </main>
-  );
-}
+    </main> // This closes the <main> tag
+  ); // This closes the return statement
+} // This closes the Home function
