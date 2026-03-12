@@ -106,7 +106,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.8 }}
           >
             {/* PROJECTS TAB */}
             {activeTab === "projects" && (
@@ -121,14 +121,14 @@ export default function Home() {
                   },
                   {
                     title: "Real-Time Inventory System",
-                    tag: "SILVER",
+                    tag: "FliPR Labs",
                     data: inventoryData,
                     tech: ["REACT", "NODE.JS", "JWT"],
                     desc: "Enterprise management system with secure authentication and real-time stock tracking."
                   },
                   {
                     title: "AI Code Reviewer",
-                    tag: "NEW",
+                    tag: "2025",
                     data: codeReviewData,
                     tech: ["PYTHON", "FLASK", "GEMINI"],
                     desc: "Automated analysis tool detecting security vulnerabilities and bugs in real-time."
@@ -225,8 +225,8 @@ export default function Home() {
       {/* 4. FOOTER / CONTACT */}
       <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-10 relative z-10" id="contact">
         <div className="space-y-2">
-          <h3 className="text-4xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
-          <p className="text-gray-500 text-sm uppercase tracking-widest font-mono">Open for 2026 roles & collaborations</p>
+          <h3 className="text-6xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
+          
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-4">
