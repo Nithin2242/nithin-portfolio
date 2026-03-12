@@ -2,7 +2,17 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+
+// Components
 import HealthBotDemo from "./components/HealthBotDemo";
+import LottieAnimation from "./components/LottieAnimation";
+
+// JSON Animations (Ensure these exist in your /public folder)
+import healthcareBotData from "../../public/healthcare-bot.json";
+import inventoryData from "../../public/inventory.json";
+import codeReviewData from "../../public/code-review.json";
+import cyberSentinelData from "../../public/cyber-sentinel.json";
+import dashboardData from "../../public/dashboard.json";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("projects");
@@ -17,12 +27,11 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8 md:p-24 max-w-5xl mx-auto space-y-32">
       
-{/* Hero Section - The "Real Me" Layout */}
+      {/* 1. HERO SECTION */}
       <motion.section 
         initial="hidden" animate="visible" variants={fadeInUp} 
         className="flex flex-col md:flex-row items-center gap-12 pt-12 md:pt-20 relative z-10"
       >
-        {/* Left Side: Name & Bio */}
         <div className="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none">
             NITHIN NS
@@ -35,11 +44,8 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Right Side: Circular Photo with Glow */}
         <div className="relative group order-1 md:order-2">
-          {/* Ambient Glow behind the photo */}
           <div className="absolute -inset-2 bg-gradient-to-tr from-white/20 to-transparent rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition duration-1000"></div>
-          
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 overflow-hidden backdrop-blur-sm shadow-2xl">
             <img 
               src="/profile.jpeg" 
@@ -47,17 +53,15 @@ export default function Home() {
               className="w-full h-full object-cover object-[center_45%] grayscale hover:grayscale-0 transition-all duration-1000 scale-[1.3] hover:scale-[1.2] translate-y-2"
             />
           </div>
-          
-          {/* Subtle tech decoration */}
           <div className="absolute -bottom-4 -right-4 bg-white/5 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full hidden md:block">
             <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">NNS_ID_02242</span>
           </div>
         </div>
       </motion.section>
 
-      {/* Core Expertise (Always Visible) */}
+      {/* 2. CORE EXPERTISE */}
       <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="space-y-12 relative z-10">
-        <h3 className="text-3xl font-bold tracking-tight border-b border-white/10 pb-4">Core Expertise</h3>
+        <h3 className="text-3xl font-bold tracking-tight border-b border-white/10 pb-4 uppercase">Core Expertise</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className={glassCardClass}>
             <h4 className="text-xl font-semibold mb-2">Full-Stack Development</h4>
@@ -78,7 +82,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Tabbed Content Section (Projects / Certificates / Demo) */}
+      {/* 3. TABBED CONTENT SECTION */}
       <section className="relative z-10 space-y-12">
         <div className="flex flex-wrap justify-center gap-4 border-b border-white/10 pb-8">
           {["projects", "certificates", "demo"].map((tab) => (
@@ -107,42 +111,72 @@ export default function Home() {
             {/* PROJECTS TAB */}
             {activeTab === "projects" && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className={`${glassCardClass} border-white/30`}>
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="text-xl font-semibold text-white">AI Healthcare Assistant</h4>
-                    <span className="text-[10px] bg-white/10 px-2 py-1 rounded text-white font-mono">FEATURED</span>
+                {[
+                  {
+                    title: "AI Healthcare Assistant",
+                    tag: "2026",
+                    data: healthcareBotData,
+                    tech: ["PYTHON", "GEMINI API", "STREAMLIT"],
+                    desc: "A specialized AI agent providing personalized wellness insights and medical info retrieval."
+                  },
+                  {
+                    title: "Real-Time Inventory System",
+                    tag: "SILVER",
+                    data: inventoryData,
+                    tech: ["REACT", "NODE.JS", "JWT"],
+                    desc: "Enterprise management system with secure authentication and real-time stock tracking."
+                  },
+                  {
+                    title: "AI Code Reviewer",
+                    tag: "NEW",
+                    data: codeReviewData,
+                    tech: ["PYTHON", "FLASK", "GEMINI"],
+                    desc: "Automated analysis tool detecting security vulnerabilities and bugs in real-time."
+                  },
+                  {
+                    title: "Cyber Sentinel",
+                    tag: "MOBILE",
+                    data: cyberSentinelData,
+                    tech: ["FLUTTER", "DART", "AES"],
+                    desc: "Mobile security app featuring ML threat detection and behavioral analytics."
+                  },
+                  {
+                    title: "D-Mart Sales Dashboard",
+                    tag: "ANALYTICS",
+                    data: dashboardData,
+                    tech: ["SQL", "POWER BI", "EXCEL"],
+                    desc: "End-to-end retail analytics with normalized schemas and predictive sales trends.",
+                    isWide: true
+                  }
+                ].map((project, index) => (
+                  <div key={index} className={`group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-all duration-500 cursor-none flex flex-col h-full ${project.isWide ? 'md:col-span-2' : ''}`}>
+                    <div className={`${project.isWide ? 'aspect-[21/7]' : 'aspect-[21/9]'} bg-white/5 border-b border-white/10 flex items-center justify-center p-6 group-hover:bg-white/10 transition-colors relative overflow-hidden`}>
+                      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700"></div>
+                      <LottieAnimation 
+                        animationData={project.data} 
+                        className={`${project.isWide ? 'w-48 h-48 md:w-64 md:h-64' : 'w-32 h-32'} relative z-10 group-hover:scale-110 transition-transform duration-700`}
+                      />
+                    </div>
+                    <div className="p-5 space-y-3 flex-grow flex flex-col justify-between">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-start">
+                          <h4 className="font-bold text-white text-lg tracking-tight uppercase">{project.title}</h4>
+                          <span className="text-[9px] bg-white/10 px-2 py-1 rounded text-gray-400 font-mono">{project.tag}</span>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed">{project.desc}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-3 pt-4 border-t border-white/5">
+                        {project.tech.map((t) => (
+                          <span key={t} className="text-[10px] font-mono text-green-400/70 tracking-widest">{t}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs text-green-400/80 font-mono mb-3">Python, Streamlit, Gemini API</p>
-                  <p className="text-gray-400 text-sm">Personalized wellness insights and routine recommendations.</p>
-                </div>
-
-                <div className={glassCardClass}>
-                  <h4 className="text-xl font-semibold text-white">Real-Time Inventory System</h4>
-                  <p className="text-xs text-green-400/80 font-mono mt-1 mb-3">React, Node.js // Hackathon Silver</p>
-                  <p className="text-gray-400 text-sm">Enterprise management system with secure JWT authentication.</p>
-                </div>
-
-                <div className={glassCardClass}>
-                  <h4 className="text-xl font-semibold text-white">AI Code Reviewer</h4>
-                  <p className="text-xs text-green-400/80 font-mono mt-1 mb-3">Python, Flask, Google Gemini API</p>
-                  <p className="text-gray-400 text-sm">AI-powered code analysis tool that detects bugs and security vulnerabilities, reducing manual review effort by 40%.</p>
-                </div>
-
-                <div className={glassCardClass}>
-                  <h4 className="text-xl font-semibold text-white">Cyber Sentinel</h4>
-                  <p className="text-xs text-green-400/80 font-mono mt-1 mb-3">Flutter, Dart, Machine Learning</p>
-                  <p className="text-gray-400 text-sm">Mobile app with ML threat detection and AES encryption.</p>
-                </div>
-
-                <div className={`${glassCardClass} md:col-span-2`}>
-                  <h4 className="text-xl font-semibold text-white">D-Mart Sales Dashboard</h4>
-                  <p className="text-xs text-green-400/80 font-mono mt-1 mb-3">SQL, Power BI, Excel</p>
-                  <p className="text-gray-400 text-sm">End-to-end retail analytics with normalized database schemas.</p>
-                </div>
+                ))}
               </div>
             )}
 
-{/* CERTIFICATES TAB */}
+            {/* CERTIFICATES TAB */}
             {activeTab === "certificates" && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
@@ -154,7 +188,6 @@ export default function Home() {
                   { title: "Web Development", org: "Fliprlabs", date: "2025", img: "/cert-flipr.png" },
                 ].map((cert, index) => (
                   <div key={index} className="group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] transition-all duration-500 cursor-none">
-                    {/* Certificate Image Wrapper */}
                     <div className="aspect-[16/10] overflow-hidden bg-white/5 border-b border-white/10 relative">
                       <img 
                         src={cert.img} 
@@ -162,7 +195,6 @@ export default function Home() {
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                       />
                     </div>
-                    {/* Content */}
                     <div className="p-4 space-y-2">
                       <h4 className="font-bold text-white text-sm group-hover:text-white transition-colors">
                         {cert.title}
@@ -181,21 +213,22 @@ export default function Home() {
             {activeTab === "demo" && (
               <div className="space-y-8 max-w-4xl mx-auto">
                 <p className="text-center text-gray-400 text-sm italic">Interact with the live AI Assistant below.</p>
-                <HealthBotDemo />
+                <div className="featured-demo-container">
+                    <HealthBotDemo />
+                </div>
               </div>
             )}
           </motion.div>
         </AnimatePresence>
       </section>
 
-      {/* Footer / Contact */}
+      {/* 4. FOOTER / CONTACT */}
       <footer className="border-t border-white/10 pt-12 pb-20 text-center space-y-10 relative z-10" id="contact">
         <div className="space-y-2">
           <h3 className="text-4xl font-bold text-white tracking-tighter uppercase">LET'S CONNECT</h3>
-
+          <p className="text-gray-500 text-sm uppercase tracking-widest font-mono">Open for 2026 roles & collaborations</p>
         </div>
 
-        {/* Primary Contact Row: Email + Socials */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-4">
           <a 
             href="mailto:nithinns1402@gmail.com" 
@@ -223,7 +256,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Secondary Row: Download CV */}
         <div className="flex justify-center pt-4">
           <a 
             href="/Nithin_NS_Resume.pdf" 
