@@ -5,7 +5,7 @@ import CustomCursor from "./components/CustomCursor"; // This was missing!
 
 export const metadata: Metadata = {
   title: "Nithin N S | Portfolio",
-  description: "Full-Stack Developer & Data Analyst",
+  description: "Full-Stack Developer & AI Analytics Portfolio",
 };
 
 export default function RootLayout({
