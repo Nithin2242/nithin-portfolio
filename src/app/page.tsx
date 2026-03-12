@@ -1,5 +1,12 @@
 "use client";
 
+// Updated Line 4: Only the icons that are definitely working
+import { SiPython, SiFlask, SiReact, SiTailwindcss, SiNodedotjs, SiJsonwebtokens, SiGoogle, SiStreamlit, SiFlutter } from "react-icons/si";
+
+// Updated Line 5: Stable icons from Font Awesome
+import { FaDatabase, FaFileExcel, FaChartBar } from "react-icons/fa";
+
+// (Ensure your existing JSON and component imports stay!)
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
@@ -139,40 +146,64 @@ export default function Home() {
                     title: "AI Healthcare Assistant",
                     tag: "2026",
                     data: healthcareBotData,
-                    tech: ["PYTHON", "GEMINI API", "STREAMLIT"],
+                    // UPDATED: Icons are now components with custom colors
+                    tech: [
+                      { icon: SiPython, color: "text-[#3776AB]" },
+                      { icon: SiGoogle, color: "text-[#4285F4]" }, // Representing Gemini
+                      { icon: SiStreamlit, color: "text-[#FF4B4B]" }
+                    ],
                     desc: "A specialized AI agent providing personalized wellness insights and medical info retrieval."
                   },
                   {
                     title: "Real-Time Inventory System",
                     tag: "SILVER",
                     data: inventoryData,
-                    tech: ["REACT", "NODE.JS", "JWT"],
+                    tech: [
+                      { icon: SiReact, color: "text-[#61DAFB]" },
+                      { icon: SiNodedotjs, color: "text-[#339933]" },
+                      { icon: SiJsonwebtokens, color: "text-white" }, // Changed here
+                      { icon: FaDatabase, color: "text-gray-400" }
+                    ],
                     desc: "Enterprise management system with secure authentication and real-time stock tracking."
                   },
                   {
                     title: "AI Code Reviewer",
                     tag: "NEW",
                     data: codeReviewData,
-                    tech: ["PYTHON", "FLASK", "GEMINI"],
+                    tech: [
+                      { icon: SiPython, color: "text-[#3776AB]" },
+                      { icon: SiFlask, color: "text-white" },
+                      { icon: SiGoogle, color: "text-[#4285F4]" }
+                    ],
                     desc: "Automated analysis tool detecting security vulnerabilities and bugs in real-time."
                   },
                   {
                     title: "Cyber Sentinel",
                     tag: "MOBILE",
                     data: cyberSentinelData,
-                    tech: ["FLUTTER", "DART", "AES"],
+                    tech: [
+                      { icon: SiFlutter, color: "text-[#02569B]" },
+                      { icon: SiPython, color: "text-[#3776AB]" }, // Assuming Python backend
+                      { icon: FaDatabase, color: "text-gray-400" } // General SQL
+                    ],
                     desc: "Mobile security app featuring ML threat detection and behavioral analytics."
                   },
-                  {
+               {
                     title: "D-Mart Sales Dashboard",
                     tag: "ANALYTICS",
                     data: dashboardData,
-                    tech: ["SQL", "POWER BI", "EXCEL"],
+                    tech: [
+                      { icon: FaDatabase, color: "text-gray-400" }, 
+                      { icon: FaChartBar, color: "text-[#F2C811]" }, // Using FaChartBar for Power BI
+                      { icon: FaFileExcel, color: "text-[#217346]" }
+                    ],
                     desc: "End-to-end retail analytics with normalized schemas and predictive sales trends.",
                     isWide: true
                   }
                 ].map((project, index) => (
                   <div key={index} className={`group rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden hover:border-white/20 transition-all duration-500 cursor-none flex flex-col h-full ${project.isWide ? 'md:col-span-2' : ''}`}>
+                    
+                    {/* (KEEP YOUR EXISTING LOTTIE wrapper with bg-white/5 etc.) */}
                     <div className={`${project.isWide ? 'aspect-[21/7]' : 'aspect-[21/9]'} bg-white/5 border-b border-white/10 flex items-center justify-center p-6 group-hover:bg-white/10 transition-colors relative overflow-hidden`}>
                       <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700"></div>
                       <LottieAnimation 
@@ -180,6 +211,7 @@ export default function Home() {
                         className={`${project.isWide ? 'w-48 h-48 md:w-64 md:h-64' : 'w-32 h-32'} relative z-10 group-hover:scale-110 transition-transform duration-700`}
                       />
                     </div>
+                    
                     <div className="p-5 space-y-3 flex-grow flex flex-col justify-between">
                       <div className="space-y-3">
                         <div className="flex justify-between items-start">
@@ -188,9 +220,16 @@ export default function Home() {
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed">{project.desc}</p>
                       </div>
-                      <div className="flex flex-wrap gap-3 pt-4 border-t border-white/5">
-                        {project.tech.map((t) => (
-                          <span key={t} className="text-[10px] font-mono text-green-400/70 tracking-widest uppercase">{t}</span>
+                      
+                      {/* UPDATED TECH STACK: Dynamic Icon Rendering with Colors */}
+                      <div className="flex flex-wrap gap-4 pt-4 border-t border-white/5">
+                        {project.tech.map((tech, tIndex) => (
+                          <div key={tIndex} className={`flex items-center gap-2 ${tech.color}`}>
+                            {/* Dynamically Render the Icon Component with fixed size */}
+                            <tech.icon className="w-5 h-5" /> 
+                            {/* Optional text: remove this span if you want ONLY icons */}
+                            {/* <span className="text-[9px] font-mono text-gray-500 tracking-widest uppercase">{tech.name}</span> */}
+                          </div>
                         ))}
                       </div>
                     </div>
