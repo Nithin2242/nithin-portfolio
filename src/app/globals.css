@@ -28,3 +28,7 @@ html, body, *, *::before, *::after {
 .fixed.top-0.left-0.pointer-events-none {
   pointer-events: none !important;
 }
+/* Hides the default system cursor everywhere, forcing only your custom cursor to show */
+* {
+  cursor: none !important;
+}
