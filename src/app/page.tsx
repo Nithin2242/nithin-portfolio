@@ -29,7 +29,7 @@ export default function Home() {
 
   const glassCardClass = "p-6 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md hover:bg-white/[0.08] transition-all duration-300";
 
-  // Certificate Data Array based on your screenshot
+  // Certificate Data Array
   const certificates = [
     { id: 1, title: "Data Science & Analytics", issuer: "HP LIFE", year: "2025", image: "/cert-hp.png" },
     { id: 2, title: "Data Analytics", issuer: "INFOSYS FOUNDATION", year: "2025", image: "/cert-infosys.png" },
@@ -40,7 +40,6 @@ export default function Home() {
   ];
 
   return (
-    // 'bg-transparent' here is crucial so the robot isn't blocked by a black wall
     <main className="relative min-h-screen bg-transparent overflow-x-hidden">
       
       {/* 1. THE 3D ROBOT - Anchored to the very top of the page */}
@@ -52,7 +51,7 @@ export default function Home() {
       <section className="relative w-full h-screen flex items-center px-8 md:px-16 lg:px-24">
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center justify-between w-full pointer-events-none">
           
-          {/* Left Column */}
+          {/* Left Column (Text & Button) */}
           <div className="pointer-events-auto text-left pl-0 md:pl-8">
             <motion.h1 
               initial="hidden"
@@ -68,7 +67,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-zinc-400 space-y-4 font-mono text-sm tracking-wider"
+              className="text-zinc-400 space-y-4 font-mono text-sm tracking-wider mb-12"
             >
               <p className="border-l-2 border-white/20 pl-4">// FULL-STACK DEVELOPER</p>
               <div className="flex items-center gap-3">
@@ -79,23 +78,29 @@ export default function Home() {
               </div>
               <p className="border-l-2 border-white/20 pl-4">// DATA ANALYTICS</p>
             </motion.div>
+
+            {/* Download CV Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              <a 
+                href="/Nithin_NS_Resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold font-mono text-sm tracking-widest uppercase rounded-full hover:bg-zinc-200 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group"
+              >
+                Download CV
+                <svg className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </a>
+            </motion.div>
           </div>
 
-          {/* Right Column */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="pointer-events-auto flex justify-end pr-0 mt-16 md:mt-0"
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[320px] lg:h-[320px] shrink-0 rounded-full overflow-hidden border-[6px] border-white shadow-2xl">
-               <img 
-                 src="/profile.jpeg" 
-                 alt="Nithin NS"
-                 className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-               />
-            </div>
-          </motion.div>
+          {/* Right Column (Intentionally empty to give the 3D robot space) */}
+          <div className="hidden md:block"></div>
         </div>
       </section>
 
@@ -158,7 +163,6 @@ export default function Home() {
 
           {/* Projects, Certificates & Demos Tabs */}
           <section>
-            {/* Updated Pill-Shaped Tabs to match your screenshot */}
             <div className="flex justify-center gap-4 mb-16 overflow-x-auto pb-4">
               {["projects", "certificates", "demo"].map((tab) => (
                 <button
@@ -280,7 +284,7 @@ export default function Home() {
                 </motion.div>
               )}
 
-              {/* NEW CERTIFICATES GRID */}
+              {/* CERTIFICATES GRID */}
               {activeTab === "certificates" && (
                 <motion.div
                   key="certificates"
@@ -289,37 +293,24 @@ export default function Home() {
                   exit={{ opacity: 0 }}
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
-                  {/* --- REPLACE THE EXISTING CERTIFICATES.MAP BLOCK IN YOUR page.tsx WITH THIS --- */}
-
-{certificates.map((cert) => (
-  // Main Card Div: We'll add a slight lift on hover ('hover:-translate-y-2') and improve transitions.
-  <div key={cert.id} className="rounded-xl border border-white/10 bg-zinc-900/40 overflow-hidden hover:border-white/30 hover:-translate-y-2 transition-all duration-500 group cursor-pointer shadow-lg hover:shadow-2xl">
-    
-    {/* Image Container */}
-    <div className="h-56 w-full bg-white/5 relative overflow-hidden">
-      <img
-        src={cert.image}
-        alt={cert.title}
-        // --- ADDED INTERACTIVE B&W EFFECT HERE ---
-        // 1. OBJECTIVES: 'object-cover' keeps aspect ratio, 'group-hover:scale-105' already handles the zoom.
-        // 2. FILTERS (Core Request): 'filter grayscale' applies B&W by default. 'hover:grayscale-0' restores color on direct image hover.
-        // 3. WHOLE-CARD INTERACTION: Also added 'group-hover:grayscale-0' so color activates when hovering anywhere on the card!
-        // 4. TIMING: 'transition-all duration-500' ensures the grayscale effect fades in/out smoothly.
-        className="w-full h-full object-cover group-hover:scale-105 filter grayscale hover:grayscale-0 group-hover:grayscale-0 transition-all duration-500"
-      />
-    </div>
-
-    {/* Content Container */}
-    <div className="p-6">
-      {/* Subtle color transition on the title too when the card is hovered */}
-      <h3 className="text-xl font-bold text-white mb-6 group-hover:text-cyan-300 transition-colors duration-300">{cert.title}</h3>
-      <div className="flex justify-between items-center text-xs font-mono text-zinc-500 tracking-wider">
-        <span className="uppercase">{cert.issuer}</span>
-        <span>{cert.year}</span>
-      </div>
-    </div>
-  </div>
-))}
+                  {certificates.map((cert) => (
+                    <div key={cert.id} className="rounded-xl border border-white/10 bg-zinc-900/40 overflow-hidden hover:border-white/30 hover:-translate-y-2 transition-all duration-500 group cursor-pointer shadow-lg hover:shadow-2xl">
+                      <div className="h-56 w-full bg-white/5 relative overflow-hidden">
+                        <img 
+                          src={cert.image} 
+                          alt={cert.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 filter grayscale hover:grayscale-0 group-hover:grayscale-0 transition-all duration-500" 
+                        />
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-white mb-6 group-hover:text-cyan-300 transition-colors duration-300">{cert.title}</h3>
+                        <div className="flex justify-between items-center text-xs font-mono text-zinc-500 tracking-wider">
+                          <span className="uppercase">{cert.issuer}</span>
+                          <span>{cert.year}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </motion.div>
               )}
 
@@ -358,11 +349,11 @@ export default function Home() {
                   <FaEnvelope size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">EMAIL</span>
                 </a>
-                <a href="https://www.linkedin.com/in/nithin-n-s-23b3ba290/" target="_blank" rel="noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
+                <a href="https://www.linkedin.com/in/nithin-n-s" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
                   <FaLinkedin size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">LINKEDIN</span>
                 </a>
-                <a href="https://github.com/Nithin2242" target="_blank" rel="noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
+                <a href="https://github.com/nithin-ns" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
                   <FaGithub size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">GITHUB</span>
                 </a>
