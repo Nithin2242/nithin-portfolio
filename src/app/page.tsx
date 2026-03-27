@@ -349,11 +349,11 @@ export default function Home() {
                   <FaEnvelope size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">EMAIL</span>
                 </a>
-                <a href="https://www.linkedin.com/in/nithin-n-s" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
+                <a href="https://www.linkedin.com/in/nithin-n-s-23b3ba290/" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
                   <FaLinkedin size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">LINKEDIN</span>
                 </a>
-                <a href="https://github.com/nithin-ns" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
+                <a href="https://github.com/Nithin2242" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white flex items-center gap-3">
                   <FaGithub size={20} />
                   <span className="hidden md:block font-mono text-sm tracking-wider">GITHUB</span>
                 </a>
