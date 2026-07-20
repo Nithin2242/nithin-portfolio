@@ -138,6 +138,16 @@ export default function Home() {
             </div>
           </motion.section>
 
+          {/* Work & Internship Experience */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <Experience />
+          </motion.section>
+
           {/* Core Expertise */}
           <motion.section
             initial="hidden"
