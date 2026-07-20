@@ -7,7 +7,7 @@ export default function Experience() {
     {
       role: "Android App Development using Generative AI Intern",
       company: "MindMatrix",
-      duration: "May 2026",
+      duration: "Feb 2026 -May 2026",
       location: "Bangalore, India",
       points: [
         "Developed a full-stack Android application using Jetpack Compose and Firebase to connect blood donors with patients in real-time, reducing emergency response times.",
