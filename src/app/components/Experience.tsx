@@ -5,28 +5,34 @@ import animationData from "../../../public/blood-donors.json";
 
 export default function Experience() {
   return (
-    <section className="py-12">
-      <h2 className="text-3xl font-bold tracking-wider mb-8 text-white uppercase">
-        Work & Internship Experience
-      </h2>
+    <section>
+      {/* Optional: If you want the header to look exactly like "THE STORY", add the flex line. Otherwise, this matches your original header. */}
+      <div className="flex items-center gap-6 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
+          WORK & INTERNSHIP EXPERIENCE
+        </h2>
+        <div className="h-[1px] bg-white/20 flex-grow"></div>
+      </div>
 
-      {/* Card Wrapper with 2-Column Grid */}
-      <div className="bg-slate-900/50 rounded-2xl border border-slate-800 p-6 md:p-8 backdrop-blur-sm grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      {/* Grid Layout matching the Projects section */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Column: Text Content */}
-        <div className="space-y-4">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-            <h3 className="text-xl font-bold text-white">
-              Android App Development using Generative AI Intern
-            </h3>
-            <span className="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full uppercase tracking-widest w-fit">
-              MAY 2026 | BANGALORE, INDIA
-            </span>
-          </div>
-
-          <p className="text-slate-400 font-mono text-sm">@ MindMatrix</p>
-
-          <ul className="space-y-3 text-slate-300 text-sm leading-relaxed">
+        <div className="order-2 lg:order-1">
+          {/* Date & Location styled like the Project Tags */}
+          <p className="text-zinc-500 font-mono text-sm mb-4 uppercase">
+            MAY 2026 // BANGALORE, INDIA
+          </p>
+          
+          <h3 className="text-4xl font-bold text-white mb-2">
+            Android App Development using Generative AI Intern
+          </h3>
+          
+          <p className="text-zinc-400 font-mono mb-8 text-sm">
+            @ MindMatrix
+          </p>
+          
+          <ul className="text-zinc-400 mb-8 leading-relaxed space-y-4">
             <li>
               // Developed a full-stack Android application using Jetpack Compose and Firebase to connect blood donors with patients in real-time, reducing emergency response times.
             </li>
@@ -39,8 +45,8 @@ export default function Experience() {
           </ul>
         </div>
 
-        {/* Right Column: Lottie Animation */}
-        <div className="flex items-center justify-center p-4 bg-slate-950/40 rounded-xl border border-slate-800/50">
+        {/* Right Column: Lottie Animation (Exact same box classes as projects) */}
+        <div className="order-1 lg:order-2 bg-zinc-900/50 rounded-2xl p-8 border border-white/5 h-[400px] flex items-center justify-center">
           <Lottie 
             animationData={animationData} 
             loop={true} 
