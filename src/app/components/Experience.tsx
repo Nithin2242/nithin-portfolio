@@ -1,61 +1,54 @@
 "use client";
 
-import React from 'react';
+import Lottie from "lottie-react";
+import animationData from "../../public/blood-donors.json";
 
 export default function Experience() {
-  const internships = [
-    {
-      role: "Android App Development using Generative AI Intern",
-      company: "MindMatrix",
-      duration: "May 2026",
-      location: "Bangalore, India",
-      points: [
-        "Developed a full-stack Android application using Jetpack Compose and Firebase to connect blood donors with patients in real-time, reducing emergency response times.",
-        "Implemented real-time request posting with Google Maps integration and 10km radius donor matching using Firebase Cloud Functions and push notifications.",
-        "Built a complete user management system including phone OTP authentication, donation history tracking, and availability management."
-      ]
-    }
-  ];
-
   return (
-    <section id="experience" className="w-full">
-      <div className="flex items-center gap-6 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
-          WORK & INTERNSHIP EXPERIENCE
-        </h2>
-        <div className="h-[1px] bg-white/20 flex-grow"></div>
-      </div>
+    <section className="py-12">
+      <h2 className="text-3xl font-bold tracking-wider mb-8 text-white uppercase">
+        Work & Internship Experience
+      </h2>
 
-      <div className="space-y-6">
-        {internships.map((item, index) => (
-          <div 
-            key={index} 
-            className="p-8 rounded-2xl border border-white/10 bg-zinc-900/40 backdrop-blur-md hover:border-white/20 transition-all duration-300"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-2">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-1">
-                  {item.role}
-                </h3>
-                <p className="text-zinc-400 font-mono text-sm tracking-wide">
-                  @ <span className="text-white font-semibold">{item.company}</span>
-                </p>
-              </div>
-              <span className="text-xs text-zinc-500 font-mono tracking-wider uppercase border border-white/10 bg-white/5 px-3 py-1.5 rounded-full self-start sm:self-auto">
-                {item.duration} | {item.location}
-              </span>
-            </div>
-
-            <ul className="space-y-3 text-zinc-400 text-base leading-relaxed">
-              {item.points.map((pt, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-white/40 mt-1.5 text-xs">//</span>
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
+      {/* Card Wrapper with 2-Column Grid */}
+      <div className="bg-slate-900/50 rounded-2xl border border-slate-800 p-6 md:p-8 backdrop-blur-sm grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        
+        {/* Left Column: Text Content */}
+        <div className="space-y-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+            <h3 className="text-xl font-bold text-white">
+              Android App Development using Generative AI Intern
+            </h3>
+            <span className="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full uppercase tracking-widest w-fit">
+              MAY 2026 | BANGALORE, INDIA
+            </span>
           </div>
-        ))}
+
+          <p className="text-slate-400 font-mono text-sm">@ MindMatrix</p>
+
+          <ul className="space-y-3 text-slate-300 text-sm leading-relaxed">
+            <li>
+              // Developed a full-stack Android application using Jetpack Compose and Firebase to connect blood donors with patients in real-time, reducing emergency response times.
+            </li>
+            <li>
+              // Implemented real-time request posting with Google Maps integration and 10km radius donor matching using Firebase Cloud Functions and push notifications.
+            </li>
+            <li>
+              // Built a complete user management system including phone OTP authentication, donation history tracking, and availability management.
+            </li>
+          </ul>
+        </div>
+
+        {/* Right Column: Lottie Animation */}
+        <div className="flex items-center justify-center p-4 bg-slate-950/40 rounded-xl border border-slate-800/50">
+          <Lottie 
+            animationData={animationData} 
+            loop={true} 
+            autoplay={true}
+            className="w-full max-w-sm h-auto"
+          />
+        </div>
+
       </div>
     </section>
   );

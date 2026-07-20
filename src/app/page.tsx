@@ -6,7 +6,6 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 // Components
 import SplineBackground from "./components/SplineBackground";
 import HealthBotDemo from "./components/HealthBotDemo";
-import LottieAnimation from "./components/LottieAnimation";
 import Experience from "./components/Experience";
 
 // Icons
