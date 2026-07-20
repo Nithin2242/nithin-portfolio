@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import animationData from "../../public/blood-donors.json";
+import animationData from "../../../public/blood-donors.json";
 
 export default function Experience() {
   return (

@@ -7,6 +7,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import SplineBackground from "./components/SplineBackground";
 import HealthBotDemo from "./components/HealthBotDemo";
 import Experience from "./components/Experience";
+import LottieAnimation from "./components/LottieAnimation";
 
 // Icons
 import { SiPython, SiFlask, SiReact, SiTailwindcss, SiNodedotjs, SiJsonwebtokens, SiGoogle, SiStreamlit, SiFlutter } from "react-icons/si";
