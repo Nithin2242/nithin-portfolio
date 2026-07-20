@@ -9,7 +9,7 @@ export default function Experience() {
     <section>
       <div className="flex items-center gap-6 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
-          WORK & INTERNSHIP EXPERIENCE
+         EXPERIENCE
         </h2>
         <div className="h-[1px] bg-white/20 flex-grow"></div>
       </div>
