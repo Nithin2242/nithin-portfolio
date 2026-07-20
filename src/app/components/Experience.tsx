@@ -2,11 +2,11 @@
 
 import Lottie from "lottie-react";
 import animationData from "../../../public/blood-donors.json";
+import { SiAndroid, SiFirebase, SiKotlin } from "react-icons/si";
 
 export default function Experience() {
   return (
     <section>
-      {/* Optional: If you want the header to look exactly like "THE STORY", add the flex line. Otherwise, this matches your original header. */}
       <div className="flex items-center gap-6 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
           WORK & INTERNSHIP EXPERIENCE
@@ -14,12 +14,10 @@ export default function Experience() {
         <div className="h-[1px] bg-white/20 flex-grow"></div>
       </div>
 
-      {/* Grid Layout matching the Projects section */}
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Column: Text Content */}
         <div className="order-2 lg:order-1">
-          {/* Date & Location styled like the Project Tags */}
           <p className="text-zinc-500 font-mono text-sm mb-4 uppercase">
             MAY 2026 // BANGALORE, INDIA
           </p>
@@ -43,9 +41,22 @@ export default function Experience() {
               // Built a complete user management system including phone OTP authentication, donation history tracking, and availability management.
             </li>
           </ul>
+
+          {/* Tech Stack Badges */}
+          <div className="flex flex-wrap gap-4 mb-8">
+            <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full text-sm text-zinc-300 border border-white/10">
+              <SiAndroid /> Android
+            </span>
+            <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full text-sm text-zinc-300 border border-white/10">
+              <SiKotlin /> Jetpack Compose
+            </span>
+            <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full text-sm text-zinc-300 border border-white/10">
+              <SiFirebase /> Firebase
+            </span>
+          </div>
         </div>
 
-        {/* Right Column: Lottie Animation (Exact same box classes as projects) */}
+        {/* Right Column: Lottie Animation */}
         <div className="order-1 lg:order-2 bg-zinc-900/50 rounded-2xl p-8 border border-white/5 h-[400px] flex items-center justify-center">
           <Lottie 
             animationData={animationData} 
