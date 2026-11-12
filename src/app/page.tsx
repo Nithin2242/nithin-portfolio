@@ -332,6 +332,8 @@ export default function Home() {
             variants={fadeInUp}
             className="border-t border-white/10 pt-16 pb-16"
           >
+            </section>
+              
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white mb-6">LET'S CONNECT</h2>
               <p className="text-zinc-400 mb-8 max-w-2xl mx-auto">
