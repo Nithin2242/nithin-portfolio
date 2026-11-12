@@ -5,7 +5,6 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 // Components
 import SplineBackground from "./components/SplineBackground";
-import HealthBotDemo from "./components/HealthBotDemo";
 import Experience from "./components/Experience";
 import LottieAnimation from "./components/LottieAnimation";
 
@@ -324,13 +323,6 @@ export default function Home() {
                   ))}
                 </motion.div>
               )}
-
-              {activeTab === "demo" && (
-                <motion.div
-                  key="demo"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                 >
                   <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-8">
                     <h3 className="text-2xl font-bold text-white mb-6">Interactive AI Assistant Demo</h3>
