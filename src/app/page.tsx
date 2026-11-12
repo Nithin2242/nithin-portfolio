@@ -323,17 +323,7 @@ export default function Home() {
                   ))}
                 </motion.div>
               )}
-                >
-                  <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-8">
-                    <h3 className="text-2xl font-bold text-white mb-6">Interactive AI Assistant Demo</h3>
-                    <p className="text-zinc-400 mb-8">Test the natural language processing capabilities of the custom health triage model.</p>
-                    <HealthBotDemo />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </section>
-
+               
           {/* Contact Section */}
           <motion.section
             initial="hidden"
